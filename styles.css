@@ -365,6 +365,12 @@ body {
     transition: opacity 0.3s;
 }
 
+/* IWP and Original Favorites have small text — boost them */
+.logo-slider-item img[alt="International Wood Products"],
+.logo-slider-item img[alt="Original Favorites"] {
+    height: 88px;
+}
+
 .logo-slider-item img:hover {
     opacity: 0.8;
 }
@@ -2074,6 +2080,7 @@ body {
 
 .cs-mini-card {
     cursor: pointer;
+    position: relative;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-top: 3px solid var(--color-ink);
@@ -2084,43 +2091,47 @@ body {
 }
 
 .cs-mini-card:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border-top-color: var(--color-gold);
 }
 
-.cs-mini-card:hover .cs-expand-arrow {
-    color: var(--color-gold-light);
-    animation: none;
-    transform: translateY(3px) scale(1.15);
-}
-
-.cs-mini-card.expanded:hover .cs-expand-arrow {
-    transform: rotate(180deg) scale(1.15);
-}
-
-.cs-hover-hint {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+/* Gray overlay with centered gold label */
+.cs-mini-card::after {
+    content: 'Click to read more';
+    position: absolute;
+    inset: 0;
+    background: rgba(240, 242, 246, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-gold);
     opacity: 0;
-    max-width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: opacity 0.25s ease, max-width 0.3s ease;
-    vertical-align: middle;
-    margin-left: 0;
+    transition: opacity 0.22s ease;
+    pointer-events: none;
+    border-top: 3px solid var(--color-gold);
 }
 
-.cs-mini-card:hover .cs-hover-hint {
+.cs-mini-card:not(.expanded):hover::after {
     opacity: 1;
-    max-width: 120px;
-    margin-left: 0.45rem;
 }
 
-.cs-mini-card.expanded .cs-hover-hint {
+/* Arrow on hover when not expanded */
+.cs-mini-card:not(.expanded):hover .cs-expand-arrow {
+    color: var(--color-gold-light);
+    animation: none;
+}
+
+.cs-mini-card.expanded:hover .cs-expand-arrow {
+    transform: rotate(180deg) scale(1.1);
+}
+
+/* Keep the old hover hint span but hide it — overlay handles it now */
+.cs-hover-hint {
     display: none;
 }
 
