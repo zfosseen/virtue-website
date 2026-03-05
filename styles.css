@@ -342,7 +342,7 @@ body {
 .logo-slider-track {
     display: flex;
     align-items: center;
-    gap: 6.5rem;
+    gap: 9rem;
     width: max-content;
     animation: logoScroll 75s linear infinite;
 }
@@ -1678,7 +1678,7 @@ body {
     }
 
     .logo-slider-track {
-        gap: 4rem;
+        gap: 5rem;
     }
 
     .footer-nav {
@@ -2069,10 +2069,11 @@ body {
 
 /* ----- Compact Expandable Case Study Cards ----- */
 .case-studies-grid-compact {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .cs-mini-card {
+    cursor: pointer;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-top: 3px solid var(--color-ink);
@@ -2084,6 +2085,43 @@ body {
 
 .cs-mini-card:hover {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+    border-top-color: var(--color-gold);
+}
+
+.cs-mini-card:hover .cs-expand-arrow {
+    color: var(--color-gold-light);
+    animation: none;
+    transform: translateY(3px) scale(1.15);
+}
+
+.cs-mini-card.expanded:hover .cs-expand-arrow {
+    transform: rotate(180deg) scale(1.15);
+}
+
+.cs-hover-hint {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.25s ease, max-width 0.3s ease;
+    vertical-align: middle;
+    margin-left: 0;
+}
+
+.cs-mini-card:hover .cs-hover-hint {
+    opacity: 1;
+    max-width: 120px;
+    margin-left: 0.45rem;
+}
+
+.cs-mini-card.expanded .cs-hover-hint {
+    display: none;
 }
 
 .cs-mini-client {
@@ -2148,7 +2186,7 @@ body {
     animation: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
     .case-studies-grid-compact {
         grid-template-columns: repeat(2, 1fr);
     }

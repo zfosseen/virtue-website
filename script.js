@@ -86,12 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ---- Expandable Case Study Cards ----
-    document.querySelectorAll('.cs-expand-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var card = btn.closest('.cs-mini-card');
+    // ---- Expandable Case Study Cards (click anywhere on card) ----
+    document.querySelectorAll('.cs-mini-card').forEach(function(card) {
+        card.addEventListener('click', function() {
             card.classList.toggle('expanded');
-            btn.setAttribute('aria-label', card.classList.contains('expanded') ? 'Collapse' : 'Read more');
+            var btn = card.querySelector('.cs-expand-btn');
+            if (btn) btn.setAttribute('aria-label', card.classList.contains('expanded') ? 'Collapse' : 'Read more');
         });
     });
 
