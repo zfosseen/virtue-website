@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- 6 horizontal stripes: black, yellow, red repeated -->
+  <rect width="900" height="100" fill="#000000"/>
+  <rect y="100" width="900" height="100" fill="#FCDC04"/>
+  <rect y="200" width="900" height="100" fill="#D90000"/>
+  <rect y="300" width="900" height="100" fill="#000000"/>
+  <rect y="400" width="900" height="100" fill="#FCDC04"/>
+  <rect y="500" width="900" height="100" fill="#D90000"/>
+  <!-- White disc -->
+  <circle cx="450" cy="300" r="138" fill="white"/>
+  <!-- Crane body -->
+  <ellipse cx="450" cy="318" rx="46" ry="68" fill="#808080"/>
+  <!-- Wing highlights -->
+  <path d="M404 285 Q368 252 384 218 Q422 264 450 258" fill="#696969"/>
+  <path d="M496 285 Q532 252 516 218 Q478 264 450 258" fill="#696969"/>
+  <!-- White belly -->
+  <ellipse cx="450" cy="334" rx="24" ry="36" fill="#f0f0f0"/>
+  <!-- Black neck -->
+  <ellipse cx="450" cy="254" rx="11" ry="30" fill="#111111"/>
+  <!-- Grey head -->
+  <circle cx="450" cy="222" r="21" fill="#C0C0C0"/>
+  <!-- Red face patch -->
+  <ellipse cx="450" cy="228" rx="14" ry="9" fill="#CC0000"/>
+  <!-- Eye -->
+  <circle cx="456" cy="219" r="3.5" fill="#FCDC04"/>
+  <circle cx="456" cy="219" r="1.8" fill="#111"/>
+  <!-- Beak -->
+  <path d="M448 211 L456 225 L442 225 Z" fill="#909090"/>
+  <!-- Crown spines -->
+  <line x1="450" y1="201" x2="438" y2="174" stroke="#FCDC04" stroke-width="3.5"/>
+  <line x1="450" y1="201" x2="450" y2="170" stroke="#FCDC04" stroke-width="3.5"/>
+  <line x1="450" y1="201" x2="462" y2="174" stroke="#FCDC04" stroke-width="3.5"/>
+  <circle cx="438" cy="172" r="5.5" fill="#FCDC04"/>
+  <circle cx="450" cy="168" r="5.5" fill="#FCDC04"/>
+  <circle cx="462" cy="172" r="5.5" fill="#FCDC04"/>
+  <!-- Legs -->
+  <line x1="436" y1="382" x2="428" y2="422" stroke="#808080" stroke-width="5"/>
+  <line x1="464" y1="382" x2="472" y2="422" stroke="#808080" stroke-width="5"/>
+  <!-- Feet -->
+  <line x1="428" y1="422" x2="414" y2="428" stroke="#808080" stroke-width="3"/>
+  <line x1="428" y1="422" x2="428" y2="432" stroke="#808080" stroke-width="3"/>
+  <line x1="428" y1="422" x2="442" y2="428" stroke="#808080" stroke-width="3"/>
+  <line x1="472" y1="422" x2="458" y2="428" stroke="#808080" stroke-width="3"/>
+  <line x1="472" y1="422" x2="472" y2="432" stroke="#808080" stroke-width="3"/>
+  <line x1="472" y1="422" x2="486" y2="428" stroke="#808080" stroke-width="3"/>
+</svg>

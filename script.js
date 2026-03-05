@@ -2,13 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ---- Counter Animation ----
     function animateCounter(el) {
-        var countTo = parseInt(el.getAttribute('data-count') || '0', 10);
-        var countFrom = parseInt(el.getAttribute('data-count-from') || '0', 10);
-        var prefix = el.getAttribute('data-prefix') || '';
-        var suffix = el.getAttribute('data-suffix') || '';
+        var countTo   = parseFloat(el.getAttribute('data-count') || '0');
+        var countFrom = parseFloat(el.getAttribute('data-count-from') || '0');
+        var prefix    = el.getAttribute('data-prefix') || '';
+        var suffix    = el.getAttribute('data-suffix') || '';
         var separator = el.getAttribute('data-separator') || '';
-        var duration = 1800;
-        var start = null;
+        var isDecimal = (countTo % 1 !== 0) || (countFrom % 1 !== 0);
+        var duration  = 1800;
+        var start     = null;
+
+        function fmt(val) {
+            return isDecimal ? val.toFixed(1) : Math.round(val);
+        }
 
         function step(timestamp) {
             if (!start) start = timestamp;
@@ -16,11 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var eased = 1 - Math.pow(1 - progress, 3);
 
             if (separator) {
-                var current = Math.round(countFrom - (countFrom - countTo) * eased);
-                el.textContent = countFrom + separator + current;
+                var cur = Math.round(countFrom - (countFrom - countTo) * eased);
+                el.textContent = countFrom + separator + cur;
             } else {
-                var current = Math.round(countTo * eased);
-                el.textContent = prefix + current + suffix;
+                el.textContent = prefix + fmt(countTo * eased) + suffix;
             }
 
             if (progress < 1) {
@@ -29,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (separator) {
                     el.textContent = countFrom + separator + countTo;
                 } else {
-                    el.textContent = prefix + countTo + suffix;
+                    el.textContent = prefix + fmt(countTo) + suffix;
                 }
             }
         }
@@ -79,6 +83,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (menuBtn) menuBtn.classList.remove('active');
                 }
             }
+        });
+    });
+
+    // ---- Expandable Case Study Cards ----
+    document.querySelectorAll('.cs-expand-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var card = btn.closest('.cs-mini-card');
+            card.classList.toggle('expanded');
+            btn.setAttribute('aria-label', card.classList.contains('expanded') ? 'Collapse' : 'Read more');
         });
     });
 
