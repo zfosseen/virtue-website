@@ -41,8 +41,7 @@ export default async function handler(req, res) {
         ...(phone && { phone }),
         ...(company && { company }),
         ...(industry && { industry }),
-        ...(message && { message }),
-        lead_source: 'Website Contact Form',
+        hs_lead_source: 'Website Contact Form',
       },
     };
 
